@@ -1,0 +1,1 @@
+document.querySelector('#ctl00_ContentPlaceHolder1_federatedLoginWrapper a').click();

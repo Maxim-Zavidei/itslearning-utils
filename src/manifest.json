@@ -1,0 +1,22 @@
+{
+    "manifest_version": 2,
+    "name": "Itslearning Utils",
+    "version": "1.0.0",
+    "description": "Automatically logs in into itslearning platform.",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "itslearning-utils@example.com"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.itslearning.com/",
+                "*://*.itslearning.com/index.aspx*"
+            ],
+            "js": [
+                "login.js"
+            ]
+        }
+    ]
+}
