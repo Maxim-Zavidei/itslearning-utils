@@ -1,0 +1,26 @@
+name: Release
+
+# Run on every commit tag which begins with "v"
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    name: "Release"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: "Add extension to ZIP"
+        run: |
+          ls
+          cd src
+          zip -r -FS ../itslearning-utils.zip *
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            itslearning-utils.zip
